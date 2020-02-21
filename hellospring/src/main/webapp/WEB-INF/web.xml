@@ -3,12 +3,12 @@
   <display-name>hellospring</display-name>
    
 	<servlet>
-		<servlet-name>spring</servlet-name>
+		<servlet-name>spring</servlet-name> <!-- spring-servlet.xml이름과 매핑되는 부분 -->
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	</servlet>
 	  
 	<servlet-mapping>
-		<servlet-name>spring</servlet-name>
+		<servlet-name>spring</servlet-name> <!-- spring-servlet.xml이름과 매핑되는 부분 -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping> 
   

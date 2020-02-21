@@ -1,0 +1,25 @@
+package com.douzone.emaillist.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.douzone.emaillist.repository.EmaillistRepository;
+import com.douzone.emaillist.vo.EmaillistVo;
+
+@Controller
+public class EmaillistController {
+	
+	private EmaillistRepository emaillistRepository;
+	
+	@ResponseBody
+	@RequestMapping("")
+	public String index(Model model) {
+		List<EmaillistVo> list = emaillistRepository.findAll();
+		model.addAttribute("list", list);
+		return "/WEB-INF/views/index.jsp";
+	}
+}
