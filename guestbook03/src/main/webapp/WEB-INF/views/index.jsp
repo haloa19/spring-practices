@@ -2,7 +2,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-
+<%
+	pageContext.setAttribute("newLine", "\n");
+%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>방명록</title>
@@ -23,12 +25,12 @@
 	</table>
 	</form>
 	
-	
+	<c:set var="count" value="${fn:length(list) }"/>
 	<c:forEach items="${list }" var="vo" varStatus="status">
 	<br>
 	<table width=510 border=1>
 		<tr>
-			<td>${status.count }</td>
+			<td>[${count-status.index }]</td>
 			<td>${vo.name }</td>
 			<td>${vo.ngDate }</td>
 			<td><a href="${pageContext.request.contextPath }/delete/${vo.no}" >삭제</a></td>

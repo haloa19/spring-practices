@@ -27,7 +27,8 @@ public class GuestbookRepository {
 
 			String sql = 
 					"select no, name, contents, ng_date" + 
-					" from guestbook";
+					" from guestbook" +
+					" order by ng_date desc";
 			
 			pstmt = conn.prepareStatement(sql);
 		

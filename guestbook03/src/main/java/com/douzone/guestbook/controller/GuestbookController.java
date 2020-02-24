@@ -18,7 +18,6 @@ public class GuestbookController {
 	
 	@Autowired
 	private GuestbookRepository guestbookRepository;
-	GuestbookVo vo;
 	
 	@RequestMapping("")
 	public String index(Model model) {
@@ -34,15 +33,14 @@ public class GuestbookController {
 	}
 	
 	@RequestMapping(value="/delete/{no}", method=RequestMethod.GET)
-	public String delete(@PathVariable("no") Long no) {
-		vo = new GuestbookVo();
-		vo.setNo(no);
+	public String delete(@PathVariable("no") Long no, Model model) {
+		model.addAttribute("no", no);
 		return "deleteform";
 	}
 	
-	@RequestMapping(value="/delete", method=RequestMethod.POST)
-	public String delete(@RequestParam String password) {
-		guestbookRepository.delete(vo.getNo(), password);
+	@RequestMapping(value="/delete/{no}", method=RequestMethod.POST)
+	public String delete(@PathVariable("no") Long no, @RequestParam(value="password", required=true, defaultValue="") String password) {
+		guestbookRepository.delete(no, password);
 		return "redirect:/";
 	}
 

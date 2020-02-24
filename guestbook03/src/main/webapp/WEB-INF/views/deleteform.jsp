@@ -8,7 +8,7 @@
 <title>방명록</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath }/delete" method="post">
+	<form action="${pageContext.request.contextPath }/delete/${no}" method="post">
 	<table>
 		<tr>
 			<td>비밀번호</td>
