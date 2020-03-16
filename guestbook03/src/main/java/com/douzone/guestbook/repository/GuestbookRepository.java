@@ -130,7 +130,6 @@ public class GuestbookRepository {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setLong(1, no);
 			pstmt.setString(2, password);
-
 			
 			int count = pstmt.executeUpdate();
 			
